@@ -1,8 +1,11 @@
 body{
-  input[type=text], select, textarea{
+  input.large, select.large, textarea.large{
     width: 100%;
   }
   div.container{
     padding: 10px 0;
+  }
+  .comment_block.span12{
+    margin: 10px 0;
   }
 }

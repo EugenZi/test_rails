@@ -1,2 +1,21 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="span12">
+<h1><%= @post.title %></h1>
+<div><%= @post.text %></div>
+<div class="comment_block span12">
+	<%= form_tag(:controller => "posts", :action => "comment", :method => "post") do %>
+		<%= hidden_field_tag "comment[post_id]", @post.id%>
+		<label>Название</label>
+		<%= text_field_tag "comment[title]" %><br />
+		<label>Описание</label>
+		<%= text_area_tag "comment[data]",'',  :class => "editor large" %><br />
+	  	<%= submit_tag "Создать", :class => "btn btn-large btn-primary" %>
+	<% end %>
+	<h3>Комментарии</h3>
+	<% @post.comments.each do |c| %>
+	<div class="comment">
+		<h4><%= c.title %></h4>
+		<div><%= c.data %></div>
+	</div>
+	<% end %>
+</div>
+</div>

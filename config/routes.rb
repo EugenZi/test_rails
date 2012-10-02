@@ -3,6 +3,8 @@ TetsRails::Application.routes.draw do
   resources :posts
   resources :themes
   
+  
+  post "posts/comment" => 'posts#comment'
   get 'posts/by_theme/:id' => 'posts#theme'
 
   # The priority is based upon order of creation:

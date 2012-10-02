@@ -19,6 +19,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by_id(params[:id])
+    @comment = Comment.new
   end
 
   def edit
@@ -34,5 +35,11 @@ class PostsController < ApplicationController
     @posts = Post.where("theme_id = ?" , params[:id])
     render "index"
   end
+  def comment
+    Comment.create(params[:comment]).save
+    @post = Post.find_by_id(params[:comment][:post_id])
+    render "show"
+  end
+  
   
 end
