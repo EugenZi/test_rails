@@ -14,8 +14,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = Post.create(params[:post]).save
-    render "show/#{post.id}"
+      post = Post.create(params[:post]).save
   end
 
   def show
