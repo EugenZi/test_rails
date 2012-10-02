@@ -1,7 +1,9 @@
 <h1>Themes#new</h1>
 <div class="span6" style="text-align: center;">
 	<%= form_for @theme, :url => { :action => "create" }, :html => {:class => "nifty_form"} do |f| %>
+		<label>Название</label>
 		<%= f.text_field :name %><br />
+		<label>Описание</label>
 		<%= f.text_area :description, :size => "60x12" %><br />
 	  	<%= f.submit "Создать" %>
 	<% end %>
