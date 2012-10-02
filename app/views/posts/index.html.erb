@@ -1,0 +1,20 @@
+<h1>Статьи</h1>
+<div class="row-fluid">
+    <div class="span3">
+    	<ul>
+	    	<% @themes.each do |theme| %>
+	    		<li><a href="/posts/by_themes/id/<%= theme.id %>"><%= theme.name %></a></li>
+	    	<% end %>
+    	</ul>
+    </div>
+    <div class="span9">
+<% unless @posts.nil? %>
+
+	<% @posts.each do |post| %>
+		<h3><%= post.title %> <%= post.created_at.to_datetime.strftime('%a %d %b %Y') %></h3>
+		<div><%= post.text %></div>
+	<% end %>
+
+<% end %>
+	</div>
+</div>

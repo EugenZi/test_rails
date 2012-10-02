@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  login: 
+  password: 
+  email: 
+  about_me: 
+  birthday: 
+  active: false
+
+two:
+  login: 
+  password: 
+  email: 
+  about_me: 
+  birthday: 
+  active: false
