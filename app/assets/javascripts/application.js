@@ -12,4 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require bootstrap.min.js
+//= require kendo/cultures/kendo.culture.ru.min.js
+//= require kendo/kendo.web.min.js
