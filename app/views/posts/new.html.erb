@@ -1,5 +1,5 @@
 <h1>Posts#new</h1>
-<div class="span3" style="text-align: left; margin: 0 auto;">
+<div class="span6" style="float: none; margin: 0 auto;">
 	<%= form_for @post, :url => { :action => "create" }, :html => {:class => "nifty_form"} do |f| %>
 		<% themes_array = Theme.all.map { |t| [t.name, t.id] } %>
 		<label>Тема</label>
@@ -11,7 +11,7 @@
 		<label>Заголовок</label>
 		<%= f.text_field :title %><br />
 		<label>Текст</label>
-		<%= f.text_area :text, :size => "60x12" %><br />
-	  	<%= f.submit "Создать" %>
+		<%= f.text_area :text, :size => "60x12", :class => "editor" %><br />
+	  	<%= f.submit "Создать", :class => "btn btn-large btn-primary"  %>
 	<% end %>
 </div>

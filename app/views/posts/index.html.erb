@@ -12,7 +12,10 @@
 
 	<% @posts.each do |post| %>
 		<h3><%= post.title %> <%= post.created_at.to_datetime.strftime('%a %d %b %Y') %></h3>
-		<div><%= post.text %></div>
+		<div>
+			<%= post.text %>
+			<%= link_to "Подробнее", post%>
+		</div>
 	<% end %>
 
 <% end %>
