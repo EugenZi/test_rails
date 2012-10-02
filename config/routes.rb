@@ -2,6 +2,8 @@ TetsRails::Application.routes.draw do
 
   resources :posts
   resources :themes
+  
+  get 'posts/by_theme/:id' => 'posts#theme'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

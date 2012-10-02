@@ -14,7 +14,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(params[:post]).save
+    post = Post.create(params[:post]).save
+    render "show/#{post.id}"
   end
 
   def show
@@ -28,4 +29,10 @@ class PostsController < ApplicationController
 
   def destroy
   end
+  
+  def theme
+    @posts = Post.where("theme_id = ?" , params[:id])
+    render "index"
+  end
+  
 end

@@ -3,7 +3,7 @@
     <div class="span3">
     	<ul>
 	    	<% @themes.each do |theme| %>
-	    		<li><a href="/posts/by_themes/id/<%= theme.id %>"><%= theme.name %></a></li>
+	    		<li><a href="/posts/by_theme/<%= theme.id %>"><%= theme.name %></a></li>
 	    	<% end %>
     	</ul>
     </div>
