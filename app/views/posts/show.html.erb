@@ -2,6 +2,8 @@
 <h1><%= @post.title %></h1>
 <div><%= @post.text %></div>
 <div class="comment_block span12">
+	<button class="show_comment_form btn btn-large btn-primary">Написать комментарий</button>
+	<div class="add_comment">
 	<%= form_tag(:controller => "posts", :action => "comment", :method => "post") do %>
 		<%= hidden_field_tag "comment[post_id]", @post.id%>
 		<label>Название</label>
@@ -10,6 +12,7 @@
 		<%= text_area_tag "comment[data]",'',  :class => "editor large" %><br />
 	  	<%= submit_tag "Создать", :class => "btn btn-large btn-primary" %>
 	<% end %>
+	</div>
 	<h3>Комментарии</h3>
 	<% @post.comments.each do |c| %>
 	<div class="comment">
