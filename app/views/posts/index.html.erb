@@ -1,10 +1,12 @@
 <h1>Статьи</h1>
 <div class="row-fluid">
     <div class="span3">
-    	<ul>
+    	<ul class="nav nav-list">
+    		<li class="nav-header">Темы</li>
 	    	<% @themes.each do |theme| %>
 	    		<li><a href="/posts/by_theme/<%= theme.id %>"><%= theme.name %></a></li>
 	    	<% end %>
+	    	<li class="divider"></li>
     	</ul>
     </div>
     <div class="span9">
@@ -13,8 +15,12 @@
 	<% @posts.each do |post| %>
 		<h3><%= post.title %> <%= post.created_at.to_datetime.strftime('%a %d %b %Y') %></h3>
 		<div>
-			<%= post.text %>
+			<%= post.description %>
+			<div class="edit_block">
 			<%= link_to "Подробнее", post%>
+			<%= link_to "Редактировать", edit_post_path(post)%>
+			<%= link_to "Удалить", post, :method => "delete"%>
+			</div>
 		</div>
 	<% end %>
 
