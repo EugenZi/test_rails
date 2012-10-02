@@ -10,5 +10,7 @@
  *
  *= require_self
  *= require bootstrap.min.css
- *= require kendo/kendo.black.min.css
+ *= require kendo/kendo.common.min.css
+ *= require kendo/kendo.default.min.css
+ *= require main.css.scss
  */
