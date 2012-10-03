@@ -23,9 +23,21 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
   end
 
   def update
+    @post = Post.find(params[:id])
+
+    respond_to do |format|
+      if @post.update_attributes(params[:post])
+        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
@@ -36,9 +48,15 @@ class PostsController < ApplicationController
     render "index"
   end
   def comment
-    Comment.create(params[:comment]).save
+    comment = Comment.create(params[:comment])
+    if comment.save
+      flash[:notice] = 'Saved!'
+    end
     @post = Post.find_by_id(params[:comment][:post_id])
-    render "show"
+    respond_to do |format|
+      format.json {render :json => @post.comments } 
+      format.html { render "show.html.erb"}
+    end
   end
   
   
