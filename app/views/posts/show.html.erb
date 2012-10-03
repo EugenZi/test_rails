@@ -17,8 +17,10 @@
 	<% @post.comments.each do |c| %>
 	<div class="comment">
 		<h4><%= c.title %></h4>
-		<div><%= c.data %></div>
+		<div><%= raw c.data %></div>
 	</div>
+    <div class="clear"></div>
+    <hr>
 	<% end %>
 </div>
 </div>
