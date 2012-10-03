@@ -4,6 +4,7 @@
 <div class="comment_block span12">
 	<button class="show_comment_form btn btn-large btn-primary">Написать комментарий</button>
 	<div class="add_comment">
+    <br>
 	<%= form_tag(:controller => "posts", :action => "comment", :method => "post") do %>
 		<%= hidden_field_tag "comment[post_id]", @post.id%>
 		<label>Название</label>

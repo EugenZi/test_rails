@@ -14,7 +14,12 @@ class PostsController < ApplicationController
   end
 
   def create
-      post = Post.create(params[:post]).save
+      @post = Post.create(params[:post]).save
+      if @post
+        redirect_to @post
+      else
+        render :action => "new"
+      end
   end
 
   def show
@@ -34,19 +39,24 @@ class PostsController < ApplicationController
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @post.errors, :status => :unprocessable_entity }
       end
     end
   end
 
   def destroy
+    if Post.delete(params[:id])
+      redirect_to "index"
+    end
   end
   
   def theme
     @posts = Post.where("theme_id = ?" , params[:id])
-    render "index"
+    render :action => "index"
   end
+
+
   def comment
     comment = Comment.create(params[:comment])
     if comment.save
@@ -54,8 +64,8 @@ class PostsController < ApplicationController
     end
     @post = Post.find_by_id(params[:comment][:post_id])
     respond_to do |format|
-      format.json {render :json => @post.comments } 
-      format.html { render "show.html.erb"}
+      format.json { render :json => @post }
+      format.html { redirect_to @post }
     end
   end
   
