@@ -19,19 +19,17 @@
                   <a class="brand" href="#">Title</a>
                   <div class="nav-collapse subnav-collapse">
                     <ul class="nav">
-                      <li class="active"><a href="#">Home</a></li>
+                      <li class="active"><a href="/">Домой</a></li>
                       <li><a href="#">Link</a></li>
                       <li><a href="#">Link</a></li>
                       <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Разделы <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                          <li><a href="#">Action</a></li>
-                          <li><a href="#">Another action</a></li>
-                          <li><a href="#">Something else here</a></li>
+                        	<% Theme.all.each do |t| %>
+                        		<li><a href="/posts/by_theme/<%= t.id %>"><%= t.name %></a></li>
+                        	<% end %>
                           <li class="divider"></li>
-                          <li class="nav-header">Nav header</li>
-                          <li><a href="#">Separated link</a></li>
-                          <li><a href="#">One more separated link</a></li>
+                          <li><a href="/posts/">Все разделы</a></li>
                         </ul>
                       </li>
                     </ul>
@@ -42,13 +40,12 @@
                       <li><a href="#">Link</a></li>
                       <li class="divider-vertical"></li>
                       <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Профиль <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                          <li><a href="#">Action</a></li>
-                          <li><a href="#">Another action</a></li>
-                          <li><a href="#">Something else here</a></li>
+                          <li><a href="#">Вход</a></li>
                           <li class="divider"></li>
-                          <li><a href="#">Separated link</a></li>
+                          <li><a href="#">Профиль</a></li>
+                          <li><a href="#">Выход</a></li>
                         </ul>
                       </li>
                     </ul>
