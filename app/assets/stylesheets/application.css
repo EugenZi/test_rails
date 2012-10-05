@@ -3,5 +3,6 @@
  *= require bootstrap.min.css
  *= require kendo/kendo.common.min.css
  *= require kendo/kendo.default.min.css
+ *= require icons.css
  *= require main.css.scss
  */
