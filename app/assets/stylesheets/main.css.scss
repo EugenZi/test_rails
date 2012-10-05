@@ -1,6 +1,10 @@
 body{
-  input.large, select.large, textarea.large{
+  textarea.large, select.large{
     width: 100%;
+  }
+  input.large{
+    width: 932px;
+    padding: 4px 3px;
   }
   div.container{
     padding: 10px 0;

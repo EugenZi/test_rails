@@ -1,23 +1,16 @@
 TetsRails::Application.routes.draw do
 
-  get "users/new"
+  root :to => 'index#index'
 
-  get "users/create"
-
-  get "users/show"
-
-  get "users/edit"
-
-  get "users/update"
-
-  get "users/destroy"
-
+  resources :users
   resources :posts
   resources :themes
-  
-  
+
+
   post "posts/comment" => 'posts#comment'
   get 'posts/by_theme/:id' => 'posts#theme'
+  get 'user/sign_in' => 'users#in'
+  get 'user/sign_out' => 'users#out'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -68,7 +61,7 @@ TetsRails::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'index#index'
+
 
   # See how all your routes lay out with "rake routes"
 
